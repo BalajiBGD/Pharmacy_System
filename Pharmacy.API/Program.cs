@@ -1,17 +1,24 @@
+using Microsoft.EntityFrameworkCore;
+using Pharmacy.Infrastructure.Persistance.Entities;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+
+builder.Services.AddDbContext<PharmacyDBcontext>(options => { 
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("Pharmacy.Infrastructure"));
+});
+
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    
 }
 
 app.UseHttpsRedirection();
