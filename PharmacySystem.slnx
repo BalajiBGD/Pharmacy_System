@@ -1,1 +1,10 @@
-<Solution />
+<Solution>
+  <Folder Name="/Application/" />
+  <Folder Name="/Domain/" />
+  <Folder Name="/Infrastructure/">
+    <Project Path="Pharmacy.Infrastructure/Pharmacy.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/Presentation/">
+    <Project Path="Pharmacy.API/Pharmacy.API.csproj" />
+  </Folder>
+</Solution>
